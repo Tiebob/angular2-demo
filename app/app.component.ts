@@ -90,7 +90,8 @@ import {HeroService} from "./hero.service";
 export class AppComponent implements OnInit{
     ngOnInit() {
         // this.getHeroes();
-        this.heroes = this.heroService.getHeroes();
+        // this.heroes = this.heroService.getHeroes();
+        this.heroService.getHeroes().then( heroes => this.heroes = heroes );
     }
 
     heroes: Hero[];

@@ -8,9 +8,11 @@ import {HEROES} from "./hero-mocks";
 @Injectable()
 export class HeroService {
 
+
     heroes: Hero[] = HEROES;
 
     getHeroes(){
-        return this.heroes;
+        return Promise.resolve(HEROES);
+        // return this.heroes;
     }
 }
