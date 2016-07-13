@@ -4,6 +4,8 @@ import {Injectable} from "@angular/core";
 
 import {Hero} from "./hero";
 import {HEROES} from "./hero-mocks";
+import {resolve} from "url";
+import {resolve} from "dns";
 
 @Injectable()
 export class HeroService {
@@ -14,5 +16,12 @@ export class HeroService {
     getHeroes(){
         return Promise.resolve(HEROES);
         // return this.heroes;
+    }
+
+    getHeroesSlowly()
+    {
+        return new Promise<Hero[]> (
+            resolve => setTimeout( () => resolve(HEROES), 2000)
+        );
     }
 }
